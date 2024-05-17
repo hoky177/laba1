@@ -33,6 +33,7 @@ labaaaaa
 
 
 
+[зоондбе мозгиии]   (https://youtu.be/CHAbHz8iYHc?si=gqP1SxWahYinY5Wn)
 
 
 | Обозначение | Описание | Пример регулярного выражения|
