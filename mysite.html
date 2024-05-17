@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Document</title>
+</head>
+<style>
+h1 {
+  background-color: #ff0000;
+}
+
+h2 {
+  background-color: #0ff;
+}
+
+h3 {
+  background-color: #ffd500;
+}
+
+em {
+  background-color: #8B0000;
+  color: #7FFFD4;
+}
+</style>
+
+<body>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dmX3QCNFa4g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <h1><div style="height: 30px; background: url(https://websovet.pro/img/girlianda1.gif) repeat-x 100%; background-color: white;"></div></h1>
+  <h2><marquee direction="right"><img src=https://99px.ru/sstorage/86/2017/01/image_860701172119195142125.gif /></marquee></h2>
+  <h3><marquee style="color: #04ff00; font-size: 40px; font-weight: bolder; line-height: 150%; text-shadow: #000000 0px 1px 1px;">С НОВЫМ ГОДОМ!!!</marquee>
+
+</h3>
+  <p>Это <em>красивое слово</em> Как вы видите, я изменил цвет выделения "красивое слово" на коричневый. А цвет самого слова "красивое слово" на салатовый, это я сделал при помощи CSS.</p>
+  <p>И так, что мы сделали:</p>
+    <ul>
+       <li>Показали, как форматировать текст в HTML</li>
+       <li>Показали, как изменить дизайн в CSS</li>
+       <li>И показажем, как запрограмировать изменения на JavaScript</li>
+    </ul>
+    
+    <script>
+    
+        alert("Привет пользователь! Меня зовут Стив!")
+        var imya = prompt("А как тебя зовут?")
+        alert("Приятно познакомиться " + imya + ". Очень красивое у тебя имя!")
+
+        
+    </script>
+    <script>
+    var ochki = 0
+    do {
+        var age = Number(prompt('Проверим на ваш доступ к сайту. Введите свой возраст:'));
+        if (age < 7) alert("Вход запрещен. Попробуй ещё раз!)");
+        else if(age < 18) alert("Ограниченный доступ! Тебе нет ещё 16!. Попробуй ещё раз!");
+        else alert("Добро пожаловать. Вперёд программист! Дерзай!");
+    }  while (age < 18)
+    
+    </script>
+    <p>Давайте запрограмируем поиск суммы чисел на JavaScript<p/>
+	<p>Попробуйте угадать ответ)</p>
+	Ответ: <text id="answer"></text><br> 
+    <input type="button" id="sumButton" value="Нажми, чтобы посчитать!">
+    <script>
+        function displaySum() {
+  let firstNum =  Number(prompt('Введите первое число'))
+  let secondNum = Number(prompt('Введите второе число'))
+  let userNum = Number(prompt('Введите предположительный ответ'))
+
+  let total = firstNum + secondNum;
+  alert(document.getElementById("answer").innerHTML = ` ${firstNum} + ${secondNum}, сумма = ${total}`) ;
+  if(userNum==total)
+  {
+	alert('Ты ответил верно!')
+  }
+  else alert("Ты лох!((")
+}
+
+document.getElementById('sumButton').addEventListener("click", displaySum);
+</script>
+
+
+<p>Давайте запрограмируем поиск произведения чисел на JavaScript<p/>
+Ответ:<text id= "answer2"></text><br>
+    <input type="button" id="sumButton2" value="Нажми, для результата!">
+    <script>
+        function displayPro() {
+	let repeat=1;
+	while(repeat)
+	{
+  let firstNum2 =  Number(prompt('Введите первое число'))
+  let secondNum2 = Number(prompt('Введите второе число'))
+
+  let total2 = firstNum2 * secondNum2;
+  alert(document.getElementById("answer2").innerHTML = ` ${firstNum2} * ${secondNum2}, произведение = ${total2}` );
+  repeat = Number(prompt('Продолжить?'))
+  }
+}
+
+document.getElementById('sumButton2').addEventListener("click", displayPro);
+</script>
+
+<p>А теперь попросим ввести имя на JavaScript<p/>
+
+    <input type="button" id="nameButton" value="Нажми, для вывода имени!">
+<p>Приятно познакомиться: <span id= "answer3">(Здесь будет имя)</span></p>
+    <script>
+        function displayName() {
+  let name =  prompt('Введите своё имя')
+  
+  document.getElementById("answer3").innerHTML = ` ${name} , это ваше имя!` ;
+}
+
+document.getElementById('nameButton').addEventListener("click", displayName);
+</script>
+    #snowflakeContainer {
+
+    position: absolute;
+
+    left: 0px;
+
+    top: 0px;
+
+    display: none;
+
+  }
+
+
+  .snowflake {
+
+    position: fixed;
+
+    background-color: #CCC;
+
+    user-select: none;
+
+    z-index: 1000;
+
+    pointer-events: none;
+
+    border-radius: 50%;
+
+    width: 10px;
+
+    height: 10px;
+
+  }
+
+</style>
+
+
+<div id="snowflakeContainer">
+
+  <span class="snowflake"></span>
+
+</div>
+
+
+<script>
+
+  // Массив для хранения объектов Snowflake
+
+  var snowflakes = [];
+
+
+  // Глобальные переменные для размера окна браузера
+
+  var browserWidth;
+
+  var browserHeight;
+
+
+  // Указываем количество снежинок, которые должны быть видимыми
+
+  var numberOfSnowflakes = 50;
+
+
+  // Флаг для сброса положения снежинок
+
+  var resetPosition = false;
+
+
+  // Устанавливаем параметр enableAnimations
+
+  var enableAnimations = false;
+
+  var reduceMotionQuery = matchMedia("(prefers-reduced-motion)");
+
+
+  // Изменяем значение enableAnimations
+
+  function setAccessibilityState() {
+
+    if (reduceMotionQuery.matches) {
+
+      enableAnimations = false;
+
+    } else { 
+
+      enableAnimations = true;
+
+    }
+
+  }
+
+  setAccessibilityState();
+
+
+  reduceMotionQuery.addListener(setAccessibilityState);
+
+
+  //
+
+  // Все начинается здесь...
+
+  //
+
+  function setup() {
+
+    if (enableAnimations) {
+
+      window.addEventListener("DOMContentLoaded", generateSnowflakes, false);
+
+      window.addEventListener("resize", setResetFlag, false);
+
+    }
+
+  }
+
+  setup();
+
+
+  //
+
+  // Конструктор объекта Snowflake
+
+  //
+
+  function Snowflake(element, speed, xPos, yPos) {
+
+    // устанавливаем начальные свойства снежинки
+
+    this.element = element;
+
+    this.speed = speed;
+
+    this.xPos = xPos;
+
+    this.yPos = yPos;
+
+    this.scale = 1;
+
+
+    // объявляем переменные, используемые для движения снежинки
+
+    this.counter = 0;
+
+    this.sign = Math.random() < 0.5 ? 1 : -1;
+
+
+    // устанавливаем значения начальной непрозрачности и размера снежинки 
+
+    this.element.style.opacity = (.1 + Math.random()) / 3;
+
+  }
+
+
+  //
+
+  // Функция, ответственная за перемещение снежинки
+
+  //
+
+  Snowflake.prototype.update = function () {
+
+    // используем тригонометрию, чтобы определить позицию x и y
+
+    this.counter += this.speed / 5000;
+
+    this.xPos += this.sign * this.speed * Math.cos(this.counter) / 40;
+
+    this.yPos += Math.sin(this.counter) / 40 + this.speed / 30;
+
+    this.scale = .5 + Math.abs(10 * Math.cos(this.counter) / 20);
+
+
+    // устанавливаем позицию снежинки
+
+    setTransform(Math.round(this.xPos), Math.round(this.yPos), this.scale, this.element);
+
+
+    // если снежинка опустится ниже окна браузера, переместим ее обратно наверх   
+
+    if (this.yPos > browserHeight) {
+
+      this.yPos = -50;
+
+    }
+
+  }
+
+
+  //
+
+  // Эффективный способ установить положение и размер снежинки
+
+  //
+
+  function setTransform(xPos, yPos, scale, el) {
+
+    el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0) scale(${scale}, ${scale})`;
+
+  }
+
+
+  //
+
+  // Функция, ответственная за создание снежинки
+
+  //
+
+  function generateSnowflakes() {
+
+
+    // получаем элемент снежинки из DOM и сохраняем его
+
+    var originalSnowflake = document.querySelector(".snowflake");
+
+
+    // получаем доступ к контейнеру родителя элемента снежинки
+
+    var snowflakeContainer = originalSnowflake.parentNode;
+
+    snowflakeContainer.style.display = "block";
+
+
+    // получаем размер окна браузера
+
+    browserWidth = document.documentElement.clientWidth;
+
+    browserHeight = document.documentElement.clientHeight;
+
+
+    // создаем снежинку	
+
+    for (var i = 0; i < numberOfSnowflakes; i++) {
+
+
+      // клонируем индивидуальную снежинку и добавляем ее в snowflakeContainer
+
+      var snowflakeClone = originalSnowflake.cloneNode(true);
+
+      snowflakeContainer.appendChild(snowflakeClone);
+
+
+      // устанавливаем начальную позицию и свойства для оригинальной снежинки
+
+      var initialXPos = getPosition(50, browserWidth);
+
+      var initialYPos = getPosition(50, browserHeight);
+
+      var speed = 5 + Math.random() * 40;
+
+
+      // создаем объект Snowflake
+
+      var snowflakeObject = new Snowflake(snowflakeClone,
+
+        speed,
+
+        initialXPos,
+
+        initialYPos);
+
+      snowflakes.push(snowflakeObject);
+
+    }
+
+
+    // убираем снежинку, так как больше не нужно, чтобы она была видимой
+
+    snowflakeContainer.removeChild(originalSnowflake);
+
+
+    moveSnowflakes();
+
+  }
+
+
+  //
+
+  // Отвечает за перемещение каждой снежинки, вызывая функцию обновления
+
+  //
+
+  function moveSnowflakes() {
+
+
+    if (enableAnimations) {
+
+      for (var i = 0; i < snowflakes.length; i++) {
+
+        var snowflake = snowflakes[i];
+
+        snowflake.update();
+
+      }      
+
+    }
+
+
+    // Сбрасывает значения позиций всех снежинок до установки нового значения
+
+    if (resetPosition) {
+
+      browserWidth = document.documentElement.clientWidth;
+
+      browserHeight = document.documentElement.clientHeight;
+
+
+      for (var i = 0; i < snowflakes.length; i++) {
+
+        var snowflake = snowflakes[i];
+
+
+        snowflake.xPos = getPosition(50, browserWidth);
+
+        snowflake.yPos = getPosition(50, browserHeight);
+
+      }
+
+
+      resetPosition = false;
+
+    }
+
+
+    requestAnimationFrame(moveSnowflakes);
+
+  }
+
+
+  //
+
+  
+
+  function getPosition(offset, size) {
+
+    return Math.round(-1 * offset + Math.random() * (size + 2 * offset));
+
+  }
+
+
+  //
+
+  // Сброс позиций всех снежинок
+
+  //
+
+  function setResetFlag(e) {
+
+    resetPosition = true;
+
+  }
+
+</script>
+</body>
+</html>
+
