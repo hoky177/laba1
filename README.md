@@ -33,7 +33,7 @@ labaaaaa
 
 
 
-[youtube.com](https://youtu.be/CHAbHz8iYHc?si=gqP1SxWahYinY5Wn)
+[zombe_mozgi.com](https://youtu.be/CHAbHz8iYHc?si=gqP1SxWahYinY5Wn)
 
 
 | Обозначение | Описание | Пример регулярного выражения|
